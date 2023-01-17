@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Eyes for the Elderly</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
+.w3-bar,h1,button {font-family: "Montserrat", sans-serif}
+.fa-anchor,.fa-coffee {font-size:200px}
+</style>
+</head>
+<body>
+
+<!-- Navbar -->
+<div class="w3-top">
+  <div class="w3-bar w3-red w3-card w3-left-align w3-large">
+    <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-red" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+    <a href="#" class="w3-bar-item w3-button w3-padding-large w3-white">Home</a>
+   
+  </div>
+
+  <!-- Navbar on small screens -->
+  <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
+    
+  </div>
+</div>
+
+<!-- Header -->
+<header class="w3-container w3-red w3-center" style="padding:128px 16px">
+  <h1 class="w3-margin w3-jumbo">Let Us Assist Your Vision</h1>
+  <p class="w3-xlarge">A Mahindra University initiative</p>
+  <form class="w3-button w3-black w3-padding-large w3-large w3-margin-top" action="/">
+    <input class="w3-bar-item w3-button w3-padding-large w3-white" type="submit" value="Detect Again" />
+  </form>
+</header>
+
+<!-- First Grid -->
+<div class="w3-row-padding w3-padding-64 w3-container">
+  <div class="w3-content">
+  
+  
+  <!--
+  <audio controls>
+        <source src="{{ url_for('audio') }}" type="audio/x-wav;codec=pcm">
+        Your browser does not support the audio element.
+  </audio>
+  -->
+  
+   <h1>Locate your object</h1>
+   <br><br>
+   <h3>Step 1 - Record your voice</h3>
+   <br>
+   <div style="max-width: 28em;">
+	<p>Convert recorded audio to wav:</p>
+
+	<select id="encodingTypeSelect">
+	  <option value="wav">Waveform Audio (.wav)</option>
+	</select>
+	<div id="controls">
+		<button id="recordButton">Record</button>
+		<button id="stopButton" disabled>Stop</button>
+	</div>
+	<div id="formats"></div>
+	<pre>Log</pre>
+	<pre id="log"></pre>
+       <br>
+       <h3>Step 2 - Download your record </h3> 
+	
+	<ol id="recordingsList"></ol>
+</div>
+
+   <div id="speechContainer">
+       <br>
+       <h3>Step 3 - Upload your .wav file (optional)</h3> 
+
+       <form method="post" enctype="multipart/form-data">
+           <input type="file" name="file"/>
+           <br>
+
+           <br>
+           <h3>Step 4 - Locate your object! </h3> 
+           <input type="submit" id="submitButton" value="Locate now"/>
+       </form>
+
+       {% if transcript != "" %}
+           <div id="speechTranscriptContainer">
+               <h1>Your transcription results</h1>
+               <p id="speechText">{{ transcript }}</p>
+           </div>
+       {% endif %}
+
+   </div>
+<!--
+    <header>
+              <h1>Text to Speech</h1>
+          </header>
+
+        <main>
+          <form class="input" id="voice-form" method="post">
+          
+          
+                
+                <div class="field">
+                    <label for="voices">Choose a Voice Assistant</label>
+                      <select name="voices" id="voices">
+                          <option value="Male">Male</option>
+                          <option value="Female">Female</option>
+                      </select>
+                </div>
+                
+              
+              <button>
+                    Say it!
+              </button>
+              
+           
+          </form>   
+        </main>-->
+
+
+
+
+
+
+
+
+
+
+   <!-- inserting these scripts at the end to be able to use all the elements in the DOM -->
+   <script src="{{ url_for('static', filename='js/WebAudioRecorder.min.js') }}" ></script>
+   <script src="{{ url_for('static', filename='js/app.js') }}" ></script>
+
+
+  
+  
+  </div>
+</div>
+
+
+
+<script>
+// Used to toggle the menu on small screens when clicking on the menu button
+function myFunction() {
+  var x = document.getElementById("navDemo");
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+  } else { 
+    x.className = x.className.replace(" w3-show", "");
+  }
+}
+</script>
+
+</body>
+</html>
