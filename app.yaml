@@ -1,0 +1,25 @@
+runtime: python27
+api_version: 1
+threadsafe: true
+
+handlers:
+- url: /static
+  static_dir: static
+- url: /.*
+  script: app.app
+  
+libraries:
+  - name: ssl
+    version: latest
+
+env: standard
+manual_scaling:
+  instances: 1
+resources:
+  cpu: 1
+  memory_gb: 0.5
+  disk_size_gb: 10
+
+skip_files:
+  \lib\torch\lib\dnnl.lib"
+  \lib\torch\lib\torch_cpu.dll

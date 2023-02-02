@@ -99,7 +99,7 @@ def get_iou(bb1, bb2):
 @smart_inference_mode()
 def run(
         weights=ROOT / 'best.pt',  # model path or triton URL
-        source=ROOT / 'test',  # file/dir/URL/glob/screen/0(webcam)
+        source=ROOT / '0',  # file/dir/URL/glob/screen/0(webcam)
         data=ROOT / 'data/coco128.yaml',  # dataset.yaml path
         imgsz=(640, 640),  # inference size (height, width)
         conf_thres=0.1,  # confidence threshold
