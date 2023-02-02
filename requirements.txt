@@ -51,7 +51,7 @@ thop>=0.1.1  # FLOPs computation
 
 lxml
 tqdm
-tensorflow==2.3.0rc0
+tensorflow
 absl-py
 easydict
 matplotlib
